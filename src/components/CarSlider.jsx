@@ -22,7 +22,7 @@ const CarSlider = ({ cars, title }) => {
             <span className="text-[#1F7AE0]">{firstWord}</span>
             {restWords ? <span className="text-[#00C8B3]"> {restWords}</span> : null}
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-[#00C8B3] to-[#00C8B3] mx-auto"></div>
+          
         </motion.div>
 
         <Swiper
