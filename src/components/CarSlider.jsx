@@ -7,6 +7,8 @@ import CarCard from './CarCard';
 import { motion } from 'framer-motion';
 
 const CarSlider = ({ cars, title }) => {
+  const [firstWord, ...restWordsArr] = String(title || '').split(' ');
+  const restWords = restWordsArr.join(' ');
   return (
     <section className="py-20 px-4">
       <div className="max-w-7xl mx-auto">
@@ -16,8 +18,9 @@ const CarSlider = ({ cars, title }) => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-[#00C8B3] mb-4">
-            {title}
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <span className="text-[#1F7AE0]">{firstWord}</span>
+            {restWords ? <span className="text-[#00C8B3]"> {restWords}</span> : null}
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-[#00C8B3] to-[#00C8B3] mx-auto"></div>
         </motion.div>
