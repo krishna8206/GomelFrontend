@@ -16,7 +16,7 @@ export const AdminProvider = ({ children }) => {
   const initialToken = typeof window !== 'undefined' ? localStorage.getItem('gomel_admin_token') : null;
   const [adminToken, setAdminToken] = useState(initialToken);
   const [isAdmin, setIsAdmin] = useState(!!initialToken);
-  const API_BASE = import.meta.env.VITE_API_BASE || 'https://gomelbackend.onrender.com/api';
+  const API_BASE = import.meta.env.VITE_API_BASE || 'https://updatedgomelbackend.onrender.com/api';
 
   // Optional: could validate token with backend here if endpoint exists
   // useEffect(() => { ...fetch /admin/me... })

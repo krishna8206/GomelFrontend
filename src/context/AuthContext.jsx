@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState(null);
-  const API_BASE = import.meta.env.VITE_API_BASE || 'https://gomelbackend.onrender.com/api';
+  const API_BASE = import.meta.env.VITE_API_BASE || 'https://updatedgomelbackend.onrender.com/api';
 
   useEffect(() => {
     const savedUser = localStorage.getItem('gomel_user');

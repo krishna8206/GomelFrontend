@@ -5,6 +5,8 @@ import { useCars } from '../context/CarContext';
 import CarCard from '../components/CarCard';
 import CarFilterBar from '../components/CarFilterBar';
 
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://updatedgomelbackend.onrender.com/api';
+
 const CarList = () => {
   const [searchParams] = useSearchParams();
   const { cars } = useCars();
@@ -52,7 +54,7 @@ const CarList = () => {
         try {
           const params = new URLSearchParams({ pickup, return: ret });
           if (city) params.set('city', city);
-          const res = await fetch(`https://gomelbackend.onrender.com/api/cars/availability?${params.toString()}`);
+          const res = await fetch(`${API_BASE}/cars/availability?${params.toString()}`);
           if (res.ok) {
             const data = await res.json();
             const map = {};

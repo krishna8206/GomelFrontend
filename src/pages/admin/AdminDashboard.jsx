@@ -16,6 +16,9 @@ const parseJsonSafe = async (res) => {
   throw new Error(res.status + ' ' + res.statusText + (snippet ? ` – ${snippet}` : ''));
 };
 
+// Dynamic API base for admin-only direct fetches
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://updatedgomelbackend.onrender.com/api';
+
 const Section = ({ title, children }) => (
   <div className="bg-white rounded-xl p-6 border border-primary/20 shadow-sm">
     <h2 className="text-2xl font-bold text-primary mb-4">{title}</h2>
@@ -217,7 +220,7 @@ const AdminDashboard = () => {
       setUsersLoading(true);
       setUsersError('');
       try {
-        const res = await fetch('https://gomelbackend.onrender.com/api/users', {
+        const res = await fetch(`${API_BASE}/users`, {
           headers: { Authorization: `Bearer ${adminToken}` },
         });
         const data = await parseJsonSafe(res);
@@ -234,7 +237,7 @@ const AdminDashboard = () => {
 
   const openUserDetails = async (id) => {
     try {
-      const res = await fetch(`https://gomelbackend.onrender.com/api/users/${id}`, {
+      const res = await fetch(`${API_BASE}/users/${id}`, {
         headers: { Authorization: `Bearer ${adminToken}` },
       });
       const data = await parseJsonSafe(res);

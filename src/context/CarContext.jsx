@@ -20,7 +20,7 @@ export const CarProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const { token: userToken, user } = useAuth();
   const { adminToken } = useAdmin();
-  const API_BASE = import.meta.env.VITE_API_BASE || 'https://gomelbackend.onrender.com/api';
+  const API_BASE = import.meta.env.VITE_API_BASE || 'https://updatedgomelbackend.onrender.com/api';
 
   useEffect(() => {
     // Initial load: fetch cars
