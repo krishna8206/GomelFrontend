@@ -71,7 +71,7 @@ const Hero = () => {
   return (
     <>
     <div
-    className="relative flex flex-col md:flex-row items-center justify-between px-6 md:px-20 bg-cover md:bg-contain bg-center md:bg-[right_15%_center] bg-no-repeat h-[70vh] md:h-[80vh] w-full mt-12"
+    className="relative flex flex-col md:flex-row items-center justify-between px-4 md:px-20 bg-cover md:bg-contain bg-center md:bg-[right_15%_center] bg-no-repeat py-10 md:h-[80vh] w-full mt-12"
     style={{ backgroundImage: `url(${Gomel3})` }}
   >
     {/* Decorative background shapes */}
@@ -91,15 +91,15 @@ const Hero = () => {
         initial={{ opacity: 0, x: -40 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="bg-white rounded-2xl shadow-xl p-6 w-full md:w-[520px] z-10 border border-primary/10"
+        className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 w-full max-w-md sm:max-w-lg md:max-w-none md:w-[520px] mx-auto md:mx-0 z-10 border border-primary/10"
       >
         <div className="flex border-b mb-4">
-          <button className="flex-1 text-center py-2 border-b-2 border-[#00C8B3]  text-primary font-semibold">
+          <button className="flex-1 text-center py-2 border-b-2 border-[#00C8B3]  text-primary font-semibold text-sm sm:text-base">
             Daily Drives
           </button>
-          <button className="flex-1 text-center text-[#00C8B3]  py-2 font-semibold relative">
+          <button className="flex-1 text-center text-[#00C8B3]  py-2 font-semibold relative text-sm sm:text-base">
             Subscription
-            <span className="text-xs text-red-500 absolute -top-1 right-6">
+            <span className="text-[10px] sm:text-xs text-red-500 absolute -top-2 right-2 sm:-top-1 sm:right-6">
               New
             </span>
           </button>
@@ -108,7 +108,7 @@ const Hero = () => {
         <h2 className="text-lg font-medium text-primary mb-2">
           Looking for Best Car Rentals?
         </h2>
-        <h1 className="text-2xl text-primary font-bold mb-4">
+        <h1 className="text-xl sm:text-2xl text-primary font-bold mb-4">
           Book Self-Drive Cars in{" "}
           <span
             className="text-[#00C8B3] cursor-pointer underline-offset-4 hover:underline"
@@ -163,7 +163,7 @@ const Hero = () => {
               onBlur={(e)=>{ if (!e.target.value) setPickupType('text'); }}
               onChange={(e) => setPickup(e.target.value)}
               {...(pickupType === 'datetime-local' ? { min: new Date().toISOString().slice(0,16) } : {})}
-              className="flex-1 min-w-0 w-full bg-white border border-primary/30 rounded-lg px-4 py-2 text-text focus:outline-none focus:border-primary"
+              className="flex-1 min-w-0 w-full bg-white border border-primary/30 rounded-lg px-3 sm:px-4 py-2 text-text focus:outline-none focus:border-primary"
             />
             <input
               type={dropoffType}
@@ -173,7 +173,7 @@ const Hero = () => {
               onBlur={(e)=>{ if (!e.target.value) setDropoffType('text'); }}
               onChange={(e) => setDropoff(e.target.value)}
               {...(dropoffType === 'datetime-local' ? { min: pickup || new Date().toISOString().slice(0,16) } : {})}
-              className="flex-1 min-w-0 w-full bg-white border border-primary/30 rounded-lg px-4 py-2 text-text focus:outline-none focus:border-primary"
+              className="flex-1 min-w-0 w-full bg-white border border-primary/30 rounded-lg px-3 sm:px-4 py-2 text-text focus:outline-none focus:border-primary"
             />
           </div>
           <label className="flex items-center gap-2 text-muted">
