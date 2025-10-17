@@ -84,10 +84,23 @@ const CarModal = ({ open, onClose, onSave, initial }) => {
             <input type="number" min={0} step={50} value={car.pricePerDay} onChange={(e)=>handleChange('pricePerDay', Number(e.target.value)||0)} className="w-full px-3 py-2 border rounded" />
           </div>
           <div className="md:col-span-2">
-            <label className="block text-sm text-muted mb-1">Image URL</label>
-            <input value={car.image} onChange={(e)=>handleChange('image', e.target.value)} className="w-full px-3 py-2 border rounded" />
-            {car.image ? (
-              <img src={car.image} alt="preview" className="mt-2 h-40 object-cover rounded border" />
+            <label className="block text-sm text-muted mb-1">Image</label>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => {
+                const file = e.target.files && e.target.files[0];
+                if (!file) return;
+                const reader = new FileReader();
+                reader.onload = () => {
+                  handleChange('imageData', reader.result);
+                };
+                reader.readAsDataURL(file);
+              }}
+              className="w-full px-3 py-2 border rounded"
+            />
+            {(car.imageData || car.image) ? (
+              <img src={car.imageData || car.image} alt="preview" className="mt-2 h-40 object-cover rounded border" />
             ) : null}
           </div>
           <div className="md:col-span-2">

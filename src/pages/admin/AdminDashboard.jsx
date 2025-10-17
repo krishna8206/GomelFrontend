@@ -631,7 +631,10 @@ const AdminDashboard = () => {
                   </div>
                   <div className="p-4 space-y-4">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <div className="bg-white rounded-xl p-4 border border-primary/20"><p className="text-muted text-sm">Email</p><p className="font-semibold">{selectedUser.user.email}</p></div>
+                      <div className="bg-white rounded-xl p-4 border border-primary/20">
+                        <p className="text-muted text-sm">Email</p>
+                        <p className="font-semibold break-all leading-snug">{selectedUser.user.email}</p>
+                      </div>
                       <div className="bg-white rounded-xl p-4 border border-primary/20"><p className="text-muted text-sm">Name</p><p className="font-semibold">{selectedUser.user.fullName || '-'}</p></div>
                       <div className="bg-white rounded-xl p-4 border border-primary/20"><p className="text-muted text-sm">Mobile</p><p className="font-semibold">{selectedUser.user.mobile || '-'}</p></div>
                     </div>

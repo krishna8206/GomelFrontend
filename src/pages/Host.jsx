@@ -21,6 +21,7 @@ const Host = () => {
     transmission: 'Manual',
     pricePerDay: '',
     image: '',
+    imageData: '',
     description: ''
   });
 
@@ -39,6 +40,16 @@ const Host = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+  };
+
+  const handleImageFile = (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      setFormData((prev) => ({ ...prev, imageData: reader.result }));
+    };
+    reader.readAsDataURL(file);
   };
 
   const handleSubmit = (e) => {
@@ -346,20 +357,21 @@ const Host = () => {
             <div>
               <label className="text-primary font-medium mb-2 flex items-center gap-2">
                 <FiImage className="text-primaryDark" />
-                Car Image URL
+                Car Image
               </label>
               <input
-                type="url"
-                name="image"
-                value={formData.image}
-                onChange={handleChange}
-                placeholder="https://example.com/car-image.jpg"
+                type="file"
+                accept="image/*"
+                onChange={handleImageFile}
                 className="w-full px-4 py-3 bg-white border border-primary/30 rounded-lg text-text focus:outline-none focus:border-primary"
-                required
               />
-              <p className="text-muted text-sm mt-1">
-                Use a Pexels image URL or your own image link
-              </p>
+              {(formData.imageData || formData.image) && (
+                <img
+                  src={formData.imageData || formData.image}
+                  alt="preview"
+                  className="mt-3 h-40 object-cover rounded border"
+                />
+              )}
             </div>
 
             <div>
