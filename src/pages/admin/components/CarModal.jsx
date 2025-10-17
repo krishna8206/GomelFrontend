@@ -5,9 +5,9 @@ const emptyCar = {
   type: 'SUV',
   fuel: 'Petrol',
   transmission: 'Manual',
-  pricePerDay: 0,
+  pricePerDay: '',
   rating: 0,
-  seats: 5,
+  seats: '',
   image: '',
   city: '',
   brand: '',
@@ -28,7 +28,12 @@ const CarModal = ({ open, onClose, onSave, initial }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSave(car);
+    const seatsNum = Number(car.seats);
+    const priceNum = Number(car.pricePerDay);
+    if (!Number.isFinite(seatsNum) || seatsNum <= 0) return;
+    if (!Number.isFinite(priceNum) || priceNum < 0) return;
+    const payload = { ...car, seats: seatsNum, pricePerDay: priceNum };
+    onSave(payload);
   };
 
   return (
@@ -77,11 +82,11 @@ const CarModal = ({ open, onClose, onSave, initial }) => {
           </div>
           <div>
             <label className="block text-sm text-muted mb-1">Seats</label>
-            <input type="number" min={2} max={10} value={car.seats} onChange={(e)=>handleChange('seats', Number(e.target.value)||5)} className="w-full px-3 py-2 border rounded" />
+            <input type="number" min={2} max={10} value={car.seats} onChange={(e)=>handleChange('seats', e.target.value)} placeholder="e.g. 5" required className="w-full px-3 py-2 border rounded" />
           </div>
           <div>
             <label className="block text-sm text-muted mb-1">Price / Day (₹)</label>
-            <input type="number" min={0} step={50} value={car.pricePerDay} onChange={(e)=>handleChange('pricePerDay', Number(e.target.value)||0)} className="w-full px-3 py-2 border rounded" />
+            <input type="number" min={0} step={50} value={car.pricePerDay} onChange={(e)=>handleChange('pricePerDay', e.target.value)} placeholder="e.g. 2000" required className="w-full px-3 py-2 border rounded" />
           </div>
           <div className="md:col-span-2">
             <label className="block text-sm text-muted mb-1">Image</label>
