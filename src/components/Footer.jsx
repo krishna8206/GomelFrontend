@@ -91,15 +91,19 @@ const Footer = () => {
             <h4 className="text-text font-bold mb-4">Contact Info</h4>
             <ul className="space-y-3">
               <li className="flex items-center gap-2 text-muted">
-                <FiMapPin className="text-primary" />
-                <span>Mumbai, Maharashtra, India</span>
+                <FiMapPin size={18} className="text-primary shrink-0" />
+                <span>225/2689, M.G.Vasahat, Vasant Nagar, Gota, Ahmedabad, Gujarat 380060</span>
               </li>
               <li className="flex items-center gap-2 text-muted">
-                <FiPhone className="text-primary" />
-                <span>+91 98765 43210</span>
+                <FiPhone size={18} className="text-primary shrink-0" />
+                <span>
+                  <a href="tel:+919909909852" className="hover:text-primary">9909909852</a>
+                  {" "}/{" "}
+                  <a href="tel:+919825999852" className="hover:text-primary">9825999852</a>
+                </span>
               </li>
               <li className="flex items-center gap-2 text-muted">
-                <FiMail className="text-primary" />
+                <FiMail size={18} className="text-primary shrink-0" />
                 <span>info@gomelcars.com</span>
               </li>
             </ul>
