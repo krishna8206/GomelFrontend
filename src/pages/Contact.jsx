@@ -39,12 +39,12 @@ const Contact = () => {
     {
       icon: <FiPhone className="text-2xl text-[#00C8B3]" />,
       title: 'Call Us',
-      details: ['+91 98765 43210', '+91 98765 43211', 'Mon-Sun: 24/7']
+      details: ['+91 9909909852', '+91 9825999852', 'Mon-Sun: 24/7']
     },
     {
       icon: <FiMail className="text-2xl text-[#00C8B3]" />,
       title: 'Email Us',
-      details: ['info@gomelcars.com', 'support@gomelcars.com', 'We reply within 24 hours']
+      details: ['info@gomelcars.com','We reply within 24 hours']
     }
   ];
 
@@ -210,7 +210,7 @@ const Contact = () => {
             href="tel:+919876543210"
             className="inline-block px-8 py-3 bg-primary hover:bg-primaryDark text-white font-bold rounded-lg transition-all"
           >
-            Call Now: +91 98765 43210
+            Call Now : +91 9909909852 / 9825999852
           </a>
         </motion.div>
       </div>
